@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的作品集</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- 自訂 CSS（選用） -->
+  <style>
+    /* 你可以在這裡加入自訂樣式 */
+     .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  </style>
+</head>
+<body>
+  <!-- 1. 導航列 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <!-- 請自行完成 -->
+     <div class="container">
+      <a class="navbar-brand" href="#">范瑋哲</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+       <ul class="navbar-nav ms-auto">
+         <li class="nav-item"><a class="nav-link" href="#home">首頁</a>
+        </li>
+          <li class="nav-item"><a class="nav-link" href="#about">關於</a>
+        </li>
+         <li class="nav-item"><a class="nav-link" href="#portfolio">作品</a>
+        </li>
+          <li class="nav-item"><a class="nav-link" href="#contact">聯絡</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 2. Hero Section -->
+ <section id="home" class="bg-light py-5 text-center">
+    <div class="container">
+      <!-- 請自行完成 -->
+      <h1 class="display-4 fw-bold">歡迎來到我的網站</h1>
+    <p class="lead">
+      我是淡江大學資管系的學生，現在是大三生，以下有一些作品與簡單的簡介可以做參考
+    </p>
+    <button class="btn btn-primary btn-lg me-3">了解更多</button>
+    <button class="btn btn-outline-secondary btn-lg">網頁介紹</button>
+    </div>
+  </section>
+
+  <!-- 3. 關於我 -->
+  <section id="about" class="bg-white py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">關於我</h2>
+      <div class="row align-items-center">
+        <!-- 請自行完成：使用 col-md-6 建立兩欄 -->
+          <div class="col-md-5 text-center mb-4 mb-md-0">
+        <img src="IMG_8842.jpg"
+             alt="個人照片"
+             class="img-fluid  shadow">
+      </div>
+
+       <div class="col-md-7">
+        <h2 class="fw-bold text-primary mb-3">關於我</h2>
+        <p class="fs-5">
+          嗨，我是 <span class="fw-bold text-dark">范瑋哲</span>以下是一些關於我的資訊
+        </p>
+        <p class="text-muted fs-6">
+          <p>
+          <h3>學習經歷</h3>
+          <table>
+        <tr>
+            <th>國小</th>
+            <th>國中</th>
+            <th>高中</th>
+            <th><span style="color:red;">大學</span></th>
+        </tr>
+        <tr>
+            <td>龍山國小</td>
+            <td>光武國中</td>
+            <td>光復高中</td>
+            <td><span style="color:red;">淡江大學</span></td>
+        </tr>     
+    </table>
+     </p>
+          興趣愛好是聽音樂與運動。</p>
+          未來目標是先把大學學位讀完，畢業想繼續攻讀碩士學位，在出社會後，嘗試不同產業的職務來找出最適合自己的方向。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- 4. 技能展示 -->
+  <section id="skills" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">我的技能</h2>
+      <div class="row">
+        <!-- 請自行完成：至少 3 個 col-md-4 -->
+          
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 text-center shadow-sm">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Apache_NetBeans_Logo.svg"
+               class="card-img-top mx-auto d-block p-4" 
+               style="width:120px;" alt="Java">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Java 程式設計</h5>
+            <p class="card-text text-muted">
+              目前以學習兩年，基本Java程式語言還算堪用。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 text-center shadow-sm">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAyVBMVEX/////00I2c6VkZGQ5cqJfX19aWlo6cqFXV1dTU1P/0TeHh4f/0CwaZ57/5qPp6emzs7P/+/CdnZ3/67f/11zJycnL1+P29vb/23FnZ2d7mbZrkbW0xthsbGwaZZz/4Ih9fX3c4+uqqqri4uK7u7vQ0ND/2WX/9NqNjY3w8PCXl5fCwsL/1En/+Oj/7sP/zyJbh7D/8tD/3n7/9uH/45b/6Ky7ytqXsMlGe6leibGKpsLR2+eiuM4qaZtNf6q2xtgAWpT/5JxISEiuetEyAAAKHklEQVR4nO2d+0ObOhTHwQIFpKWiFbW2Vlq0D7XqNl9Xtrv9/3/UTcK7JRC69MaGfP1hpaRpzsdzDnk6SRLaX7n2daQ566Z8YV2/vF787Iw6qUadt8Hrr2vWDftqml8OAJzgYFMBYDa4FE6W6OVxVMQpQ2z0+MK6kV9Dp0qnlFSozoHAJUkXIwJUCNfAZd1W1norD8B8NNqsW8tWjzVYAedqdKL/jNJVRxm8kYTjG+sGs1TE6g32pebv1V4WvLJuMTudhrCU6PK9EpbSYdpepvpEvtQ5jS7nFZGoHChBczsQlyGs5PqtyrGU4INhc9nqMgzD5HpQgUpRDgYMm8tWIaxRcq0IWHiFsDq/osvrsnGPoghYiFbU1yxPWQJWyCG4BBen1agELERrVDybtc5KwCJQCErAImYVSsAiZyU8i5xVo2Fl13JyKkbV6DC0TzH65x1Dq8GehdcgQ+pAeFa5Bhte1RaehdOgKAbbkWd1r2J9Pz5i3dLd6fTjEZfSCxJ80hXNuBaEdWamWt3csjZqJ3JfK8Y0ZX2GbM46k7OynlkbtgO91CNViCrMWXlYsilzF4sXpOPAIljtMlgAF2e0BjVZ5R2qnfxbCEu+Y20eVX3UZbX5HMTlLORaV6wNpKjTujGYTmC1c6wwsOQVR8/Ev4nBdgYVLgxl+YS1idT0SuE5CEm18bCsJ9ZGUpJLugWrDFYbwWrjYJlnrK2kpE8qjgUDEu9Z8oqT7sNWfrXODPlVW7mQMLDMY9ZmUlHp2mm5X7XXULXRnqNiWHzEYZ0ozDtVO8sNCe2iOSmCJVus7aSix239KocqpDWCi9dWMaxvrA2lIfJnITa1R2HYbr+D+u6LYXGRtMhTFia1xyEIoxDue3swi2F9Z20pBb2QpqyEzXqST1i1H2GFz8WwZB4yPGl+x8dgQitA222Ko5CPqYePrWBF4+d2mttBdkcHxH5gHIuLx2H53sdKx0rzVTs8TIdzLC5gEfUcCrJ6PmMFo2gL/BnOsWSLgwFP1RbkTWzR0ir4OYD/BkEw+vkZnXLqYh1Ltu7ZGkpDlbA6o+DxokQfn6fJmZ0SVrLFwQRgRX4fvf8iP750VsKKf1idR/Ij0EddC5uveIFV6laXmYJHeN3fPnRvVqWo+IBVkrNG8amdb90z0ypXBSmZj5H0T3wMRqcFHu4ss5pFNSwOnob4g3EX6P79SVnWrgOLg37WBTYIUdfpYUUHlSyvWFtKQbh1sPBUKj1WsszaUgrCzTqM4Fn6e4qsblhbSkG4pfuf8OYNhcQeiYv9DpiZUhSFt5RyO4L1g7WlNFQ8B49miK/oORYXfVLcHE0HjnMosuJiOgvzOFQ6LnadZitxssj6T0HSUhR4MvqJJiweVsKkot1ZSgjrmGIY8tAlhdpYslDowzJ52eB9PdpkRRvWioMph1DvO4fFjWOtuVa0bEMXFg8zDrEugnVWdGFZD6wtpKlgnRVVWBYPe0JSxYGo7AKWxcMQOqvTUZ5VG/4hKDqwVlyMoHO6DoIDJV5spudZpnXCTachq4tRQByGJpms1TMvhwXWZb8qo04A/4hyJwj+lUpgmV0iHXMxK4OVe51IKoHFx3QLXQlYNSRg1RA+wZ/gxM8YsK7qdx04mQ/dRlv0swQsAYtAAlYNEcIyMxuSBKxyWc/d73dxSR42NGwnEljmDZoEPbYErGpY8Ymc6BQKP3+SoK4IYJnJhLHccFjYM0up0pWIcBNJc2EReJaAFYtge1a6keik4WFIsOUoGQxGYJvbz5J+E8RhF5U8ith1GbeYpQj6DtbNw7en31HA8vJHVLbSE8luZTM5jGL9Zt1gpjqus7fbbG7/PdQTwRGmOCAbnN0jHd2QbZY0Lf5WnrfQ00m1d5mrqybn9qxur8wSXqZp3f0QqDK6/XEGj2BmJ/rQAr21urt6EKQ2dXR73P3+fHYTrnqdPV/9Pn7ictuHkJCQkJAQgSZOo//L6DpyVN0QsAiltVq6gEUoVcAil4BVQwJWleaT5CVVWBNv7C2nniSNbVpVMpa7HP/pJ1eUPWshSb1DyW1Nqovuhca6qu0UVm8+7fEC61Bt7RSWZ0+9pYBFoBmAJR32pwIWgUBVLvxx6VXJVDuFxZsaDcv1p57j9fp5z5/3cOWxsFy7oHc0mXoLp+djvhdz64vK7Q0NTVOBNMNJcU3HhpottvxjGGP4wvljADwtzTCMP6h4BMudjnUgY9yXcp9r6VHli7z7zb30exf7kaBcB5iuatBMYLSqxZ5hg7fPswX7Wks9hC8cWBAUBUphue7CQIaDG/phpvqhDt/RAbCWaizTG/OFASjphqFrsDJ9H559E2C5pju+7bp2DzZbi37HNjCyGJbv9YbAvEXP87wYlurpqqqfL5wZJKkltOaAnqr2JnN7OQa1G158owdQGQsf+Np8eQ7hG1/ftyYGMHQaX7nwdzwOX+NhSQU5qwVNR07pjqGjxTdboOAiej0F3xX71hBWlkTlDOKeUTRrNwLOpDrpJWQXGVoTlj5OTIcxOgxfLtQshCn0rbAY/J5M3UPoWjTs2anWYKHfcWhoPVjaNFewZSAvm6wxAU4XVQFvZOLOh5OtX36WYR0WajXKtfVg5fpZ4JMa6g0A9KqXuTHRY4xrsFx9H2FBK0L7/gLWGMBaRpXln3JqXPsaLHS9f7Dgcw4h+QtY8V3opvlMBHPYGL7gAxZMWijNUIAFuyK5KsIUD1/wActRoy4PBViOmnRE0jrConzA8mLLKcCaqeknQiXPD45gwWYLWBvaKazNMPT5CkOHYhhC8PkEv+QrwcOnITKHAqz+RtehF+PjA9YwHthRgGVvdEphFkNfxwUsF/bg0RsQlpYtWh8WJK/lZlthykIDIS5gLRNzIKycPVvAgn3QYeYGHBuGs69cwIJRGAWfkZ9LyMGakcFKPSn92DSufD9hjdNWe1o6cTdW8wYsMr0mLzedgIe1BK7USt739ZYaOdq+wmqpuhe129NbKRA4GRVNtQBN0ex6ci+JJyg8LOkw88vw9WTub49hqaox9pZLR4UXaY6B6Fr6ENzpzXRgdAYWmsYbxiBLYElj8EGtN7Ftfwb8yoifjfsKS104BlyO0sLZ4czNKVryAnc0VdVVJzd4GcOHpaHHCxYGDpaEFo/Q6o6qDxMextoKxd7AciTb0XSARDOGy9xde2bA93Vj6PlwNlNdpPeWQ0PXw6Ww8+FQzcKanQ9bafqfLPSw8ux6ogo+koUFr/cEFtCkP536RavJvj8J357nYYE+2WRCuNg38Zd9/+svdVVpowePF+h4kRblVDVggSeght380AjVgOVr2Y5oE1UDVk9t7cWGhN2pBizQtdKrS/Esclj++sOweSKGZavxYnJzRQqrB8d10+pyXIsElt1fwKFh41lVw+qfG2jTns7NUZrt5Q91vRTWBG1m1BfN7jTEsr3yMBweOtycdRASEvq/9R9YYveVSwMKYAAAAABJRU5ErkJggg==" 
+               class="card-img-top mx-auto d-block p-4" 
+               style="width:180px;" alt="HTML">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">python</h5>
+            <p class="card-text text-muted">
+              曾經學過半年，當時學的時候自人為還算上手，之後還有自己在做一些練習。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 text-center shadow-sm">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABC1BMVEX////kTSbxZSnr6+sAAADkSSDpb1HkTCTrWSilpaXxZCYXFxfr7u729vbosKf5xbX3pYTkQxHzd0XpysXkSBhLS0vwXBPBwcG2trYVFRUnJyfY2Njr8/Tnj3rlYUD84NidnZ3r4N2Hh4diYmLmhXHh4eF0dHQdHR3tXijiPQDxYSH+9fLlVTIrKyv87er++PZVVVXsgGX3y8DnZkrlVjX0taTwVwD64t3wnolra2usrKz408rqf2rreVrxbDfoYTvxppTq1M/6zbroopDysKI7Ozt+fn6/v7/qUBL0h1v2k2fzgU35wKfpvbL4sZLnnovmkYL1lnX70sP6x7HydkD2oHrwoIb4tJfui3BkAxVqAAANvUlEQVR4nO2dD1faSBeHEyEMUkRTUltbSeQttkVSKCCFLiCg2F2rVKut+v0/yZvwNyFzh4y5gymHX/fsaXOU8JjIPNyZuUgSX15HJ/mQHB9692pyaO+19c+DKJxvri+PRrdmD7z1YXr04xv7wNvpvw84n2Ow4BJ+oD3wShFG300eN/J5RQlfTe7T/zkOrhRhdHP8GM5jq0V4PrpPv6wuYfS7/RCbrkMrRvjZwom4D4WGcPIiEYww+i3iepkJE2Fka5h5ws3oi2E+Op/z6NAejTC6+eaz+0BYCCkZEm69OxxlJilfxkcOIzTC8znA0BNOM7v33jsPewg9WROKzZrQkTVh9O2e65unLzirQ/h504H48cPU3FaH8GPy/ex7vxzOjq8OYUSaXcJI+Aj3Pr4dZSYv/IRvZhQMwq2kI1uS2MwIXx28GeXg/OmE0rfxg0kMwvNv7x3ZFIw4I3wf8TzlJxAeDn88e+9YhO58Wx7hIQah9M/wPpT8E3742wiT38e3w8oSSu/OR9+2uoTSwcHWihOOsyZcJcIXz0w4Krm8sCtI46f8ZW9chnk7R/jCUZ6ZZvbln92EX6KT40PC8/GXzSX6XTDh4cHmOP9OzpR8Mzn0j+spv5sc3nSBO77c9Vy3/p0eH94d0y+by2vR2rbOOuuss84666yzzjrriEizHAtzys3ghFVNCW+0anBCI6bI4Y0SMwITFsuhJiwXAxMWWqEmbBUCE0o57bkxGNFywQGlTKivYQaBsEGeG4MR0kAg7MrhRSRyF4Gwb4aY0OwjEG4fh5jweBuBsNIJMWGngkDY1ENMqAeXNkmqV3GHi3jAOB9LqdYRCAu4YhrfCBgnohJDUBpJCjUhBqCEq964hGUUQlz1xiVsoRBmUF9LAxM6H4xgaKklpqjahkmII22WtoWK8JPjyRAZQ9osbQsXoeOxiIwhbZa2hZfQxFAaSTJQ31zgEgavQ9kphpgweB1qGNS3T0EJncMhOcYBlFDfPmESKjoSIaqYohLiaCmymKIS4mippW2YFVNMQg1H2ixtCy1hF4mwpoaH0DlYyGoNiXAbJlRU3vy3y5sETIhRh7LTzIOAuRRvtrlzcQQR5nGkzZIakFC7TkY4w7869AdMiKQ0UgkmzOyLJ7xMgIRIgJIE36XlJRCeOAnjYggJpG1KdQmEu9BgQWQ0wg4kNcRcAuFXiBBNSyWpDRKq4gmLMGEbjfARlJq8+NdSAyTUHtEIYW3LZ4UTnoK/hxrGBPAofVBq8mnei8hNeOUkFCNtLG1TB8IJf8KEOJU2O7C2qX3hhH/ES5sk1RG1jZtwCdKGq23chJcwYQmPUAGlhlvbuAl/Q1pKFERCUGqUmHBCUEuVDh4hXG1TdNGERZgQq9JmB6y2kWNOQG5CAybEqrTZAattxOSVGl7C2w2IEK3SZqcLE/Yow0VyHw7vqe+cziam0mYHrLYRkyI12VQGzv0OXy5chM5zI0qbJFVAQjlFIbxWCZh4gi8uQDGVNjsGNOQT+Yxyl8KmLpNA9VL3gI8zeTgKWG0jMkXbkilGCRmREE/aLEINkhpC0bbkgDENgEZIFFRCcBpYadEIGTP/eIQdVEJwfaLSphCmGXOqaIRKFZOwANailBhlOEwzFmwGInTXoVDWJU4IH0HCqldqkmnGrDEe4SMqIViLIlWv1CR7jFljNEKtgfjWQirB2qZTalHZ3BII1S4mIUPbOjRtY8yLByJ0PpCawgRkaNsxRdsi10sgzGNKG6PaRkyKtiXPYKnBI8SrtNkxIKkBtE3MNXQN+BqmlkpSHZQackMZ8lOw1KARmhgbERyEOjgg5mjaBi/2wyJUdGRCuBbV8r7QJAfwPpsghO46FC4hvBtYadGkBtY2NEKEHcAuQnCvrNKmSE06Bm1x532PDxJqOVxCWNuUmFdqkr2cDuUlV05gwgamltraBo1wSpUiNYxiG995T101fed51T6qtEkSWJggOt8UIl+99GoDJMSVNm5twyJ8cP0iughxpc0iBKXG5Jsk5SPsHgGERMMmbEKWQgitnohFeA8SIm21cBCCpRfOaWAuwtIOND1KOtiEBjiGazc8gHyExV8QoVLFFW+LEKxFaTmu6ScuwrprEt9dh8KVNutc4D5LmrZhERoXIGELm7AIFiaUMm2CDYeweQlPHuJKG6+2YRHe/gYJkaWNVW2jahsS4ekJqDS4lTY74IwZp7ZxEW67xNtFiLN71Bmw9EJMLm3jI4QGfFnD1lLGXlnqNDASYW0XIMTaH+tMBSy9aFxiykNY6oKEx9haahGCpRf1jAOQi7BwDyqNjk/YBGtR2g3PkM9DyJC2GLaWMrUtk036Dw9hHVx5qbSxtZSpbeVB2n8MIHXK+LZMaWNV26x3oxz5tEFN4pLiKAYsbciVNjsl1k5SYv8hMvHxl/iGXXrx/Hd0QTlnE1y1p2XQlQZtJylQEaYS3oJ1KMSNCLOAYopCmPhFOWUFGg5xV+1N0gf3d6EQ/qGcchsc8Am+lloGhdM8AiL8STslSGhirkucBKn3HjQzc+U9Y+kB2kxCOvhaytI2FMI77xkLcKVNgLTZLZPBGTOiaNaf4f+mf4G+mE6Y2Lj1npFVacOXNlbLZKK3cp6U+QhPKBZWhCttCA2SKedjTJL2sp5AE90QIcVR6qDSYE+PjgK3TKZV25I9TkLKGetgHQqlQbI38DRwjFJPzPIR/qac0IA3ImA0SPYGbJlMOhTCfWBwoRMeXdIIQaVBaZDsDdgymZiUiuk+sD4FIPxBOWHTSZhwnVGElrJaJms0QuAdM0DIJ21IvfbmA7dMVmmEwKJbOuEuRdpKV7C0idBSlrapKW89Zh94PwkQ0qQN3AGM0yDZG7hlstr3EkLrEwHCU+/5li1trJbJ2jVlXRSwegMgpDhKAaxD4TRI9gZumaxlKIQDHsKvFEcpwHUolAbJ3hQZq/cohD36oluAkFJ2Kb6Ed48KURrWXtkYpSac5SKk/USXsz/WGVi9dQphkoMwkaARgg0xUPfHOgNuKyFmljIgqtQ97jTCxBFNS+uupiaunyheUxN3wJbJRKOJaVs3FcVTvvIQJo4SJy9pStOEmwuJ0VJWy+Q8dbFCup8p67LmvpRxN93RxssfO1fU97N3y5Y2VstkNU0BjCSTyeygf9M+1hyUcQfd0e8f91e30Osi2LaFyCIqbXbglsk0bZtQRnqDfiYmT34r42O83Y2Lndota1z7CQ74AiaAR4FbJjMnSe1LmR6ctTqqfSnjQ7yTH7VbY8GgBrZtIbIYpWG1TF64ts26lNne4Cam2X0TL3dujeLimRVY2pAaJHvD2CubW0A4pIxks73U/V3dB52VEthrD61Bsjfg2yel7YNwFN9zwCVQadAaJHsDb5zRBRDCSoPXiW4+cE3YxCcswJ3oRGkpq4mLhk8Id6ITpqWslsn+O9P5JryFO9GJkjZm7z3fa0x9E4LSJmYCeBS4ZbL/znS+CcHJQ9y2Le4weu/5Xr3nmxCsQ2H22psP3HtPO9v3ieibkNGJTpS0sXrvEfMxld1P+qD0R1i6++P8LRTYtmXuvCChTBRV1RvprC1nAQlLxs/fX3dda2dFtQ/2Bia0o2h5uZXKsimZhKVC8fTXxld3k/KlEi5cUmNdSqV9ne5lI9AdCxMW6s2Hi6PdIw/eHCEhAgnB7oJzkNVMatCjQ9IJS/Xm9s7l7ty9CSiNOC1ltEyeh9RUs3ydStsLTxcTFozt7sUJ/eLRCPEaJHsD1hOplHIsdzbozUHOExp3D78uN5h4c4SIDZK94VufSBRF1tu5s3TSMVg6CUvNh18XJ0cL6Ow4H1bIusRJGI3YAEiL0tTbmcF0sJwSFk7/XLzc8IO3PGljftIFk5LIx+Wz7L59KUeExsPFiV0L9kHnJRQnbSxtW0yp5hXrUlqE1sXbtUb0hF+8eULUXnvzgT/pwhemppLWPWNM8EkoTtqY2uYTUvmPG89DKGCJ94wQbJnsO0/q/OGqJRKhhH6kRgChsAbJ3gT/gLLghOIqbXaCf0BZcEJxlTY7wT+g7CmErvdOAittdoJvuuAmjM89gMBKm53gH1DGRfhpHk8WLG2MJi74hJ/i9JEJudfefMCWybiEn2gXb0IoUtpY1TY0QosOxrMJxaz4mgRumYxDuIBOxm6QTCEMvPkJJlxMNyREbZBMIWR0CA5EyPjFcwe3QbI3cMvkIIS+Lt6EELVBMoWwnNe8K7mCEPq+ePLwfbSWR22QTEuzUTVlynq1JxHy0SmyGWuIm5VxxKi1Yh2bMhAh18Wz6Dqxx5rYX0FXCpVuK2ZqT4CMj8c8HjrNjOW6FdF3pyclY7vb0jVeyjgP3XBnYzXX3RbrMYzUK7WbtkxfKhs8iqbK7UaqucR7k5aCUem3TFXD/OxueTT10XmsNRct71tOSsV6pVHN411Ke7q12mjWn/niuWNR9ttKPrC2DudZSbnmc3nfslOoZEz7Uj5xsCTDyngn0wwl3DTFfvnYJPyDpT3kycflWrjpxilVGvR1+gw6xayWu5W/Am8co5Yp68TPYGlPperlm9qzDXlPT7HSzbQXeI+iaWY706+E6lWTJ8PBcrSCnXrxVD3Xrxh/071JS7E5aMTI/GBpvWqSWKPy3L6ClUK92S/L+an32Es1HlNGPRS+gpVSodhs6PZgaQ15eqNZXCm6WSzv0R+3l3tn/h/4V0OVXBluLAAAAABJRU5ErkJggg==" 
+               class="card-img-top mx-auto d-block p-4" 
+               style="width:120px;" alt="Database">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">資料庫應用</h5>
+            <p class="card-text text-muted">
+              現在正在學習。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 作品集 -->
+  <section id="portfolio" class="bg-white py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">作品集</h2>
+      <div class="row">
+        <!-- 請自行完成：至少 6 個作品項目 -->
+         <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="1.png" class="card-img-top" alt="">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">example</h5>
+            <p class="card-text text-muted">
+              圖片中是某一次上課中練習的範例。
+            </p>
+            <a href="http://127.0.0.1:5500/114_tkuim_web/example.html" 
+               class="btn btn-outline-primary" target="_blank">
+               查看詳情
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="2.png" class="card-img-top" alt="" >
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">aboutme</h5>
+            <p class="card-text text-muted">
+              某一次的回家作業在做關於我的簡介。
+            </p>
+            <a href="http://127.0.0.1:5500/114_tkuim_web/aboutme.html" 
+               class="btn btn-outline-primary" target="_blank">
+               查看詳情
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 作品 3 -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="3.png" class="card-img-top" alt="">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold">test</h5>
+            <p class="card-text text-muted">
+              某一次上課練習的成果。
+            </p>
+             <a href="http://127.0.0.1:5500/114_tkuim_web/test_js.html" 
+               class="btn btn-outline-primary" target="_blank">
+               查看詳情
+            </a>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 聯絡表單 -->
+  <section id="contact" class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">聯絡我們</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <form>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">姓名</label>
+            <input type="text" class="form-control" id="name" placeholder="請輸入您的姓名" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="請輸入您的 Email" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="subject" class="form-label">主旨</label>
+            <input type="text" class="form-control" id="subject" placeholder="請輸入主旨" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label">訊息</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="請輸入您的訊息內容" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">送出</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- 7. Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    <!-- 請自行完成 -->
+      <div class="mb-3">
+      <a href="https://www.facebook.com" target="_blank" class="text-white me-3">
+        fb
+      </a>
+      <a href="https://www.instagram.com" target="_blank" class="text-white me-3">
+        ig
+      </a>
+      <a href="https://www.google.com/?hl=zh_TW" target="_blank" class="text-white me-3">
+        google
+      </a>
+    </div>
+
+    <p class="mb-0">
+      &copy; 2025 范瑋哲的網站. All rights reserved.
+    </p>
+  </div>
+  </footer>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
