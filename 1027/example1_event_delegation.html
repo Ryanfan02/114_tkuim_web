@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>事件委派清單</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="p-4">
+  <div class="container">
+    <h3 class="mb-3">事件委派操作</h3>
+    <form id="todo-form" class="d-flex gap-2 mb-3">
+      <input id="todo-input" class="form-control" type="text" placeholder="輸入事項..." required>
+      <button class="btn btn-primary" type="submit">新增</button>
+    </form>
+    <ul id="todo-list" class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        練習事件委派
+        <button class="btn btn-sm btn-outline-danger" data-action="remove">刪除</button>
+      </li>
+    </ul>
+  </div>
+  <script src="example1_script.js"></script>
+</body>
+</html>
