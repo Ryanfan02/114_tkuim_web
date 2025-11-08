@@ -1,0 +1,73 @@
+html{ scroll-behavior:smooth; }
+:root{
+/* 淺色主題色票 */
+--bg: #f7f9fc;
+--card: #ffffff;
+--text: #1c2230;
+--muted: #6c7a92;
+--primary: #0d6efd;
+--glass: rgba(255,255,255,.65);
+--ring: rgba(13,110,253,.35);
+}
+/* 深色主題覆寫 */
+body.dark{
+--bg: #0f1220;
+--card: #151a2f;
+--text: #e8ecff;
+--muted: #aeb7d9;
+--primary: #74b0ff; /* 深色時主色較亮，提高對比 */
+--glass: rgba(21,26,47,.65);
+--ring: rgba(116,176,255,.35);
+}
+
+
+/* 基礎色與背景圖案 */
+body{ background: var(--bg); color: var(--text); }
+.bg-pattern{
+background-image:
+radial-gradient(1200px 500px at 110% -20%, rgba(13,110,253,.12), transparent 50%),
+radial-gradient(900px 450px at -10% 120%, rgba(32,201,151,.12), transparent 50%);
+}
+
+
+/* 玻璃擬態 */
+.glass{ backdrop-filter: saturate(140%) blur(6px); background: var(--glass) !important; }
+
+
+/* 強化卡片與懸浮效果 */
+.card{ background: var(--card); color: var(--text); border-radius: 1rem; }
+.lift{ transition: transform .2s ease, box-shadow .2s ease; }
+.lift:hover{ transform: translateY(-2px); box-shadow: 0 1rem 2rem rgba(0,0,0,.08); }
+
+
+/* 漸層卡片 */
+.gradient-card{ background-image: radial-gradient(1200px 500px at 90% -10%, rgba(13,110,253,.18), transparent 55%), radial-gradient(800px 400px at -20% 120%, rgba(32,201,151,.18), transparent 55%); }
+
+
+/* 浮動欄位聚焦環 */
+input:focus, select:focus{ box-shadow: 0 0 0 .25rem var(--ring) !important; border-color: var(--primary) !important; }
+
+
+/* 導覽列微字距 */
+.tracking-wide{ letter-spacing:.5px; }
+
+
+/* info tiles */
+.info-tile{ background: var(--card); border-radius: .75rem; padding:1rem; box-shadow: 0 .35rem 1rem rgba(0,0,0,.06); height:100%; }
+.info-title{ font-weight:700; margin-bottom:.25rem; }
+.info-body{ color: var(--muted); }
+
+
+/* 特色列表 */
+.feature-list{ padding-left:1.2rem; }
+.feature-list li{ margin:.4rem 0; }
+
+
+/* 深色模式下的 Bootstrap 覆寫（提高對比） */
+body.dark a{ color: var(--primary); }
+body.dark .text-secondary{ color: #c8d1f0 !important; }
+body.dark .form-text{ color: #b8c3ee !important; }
+body.dark .btn-primary{ background-color: var(--primary); border-color: var(--primary); }
+
+
+@media (max-width: 576px){ .navbar-brand{ font-size:1.05rem; } }
