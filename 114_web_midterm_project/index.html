@@ -1,165 +1,199 @@
 <!DOCTYPE html>
-<html lang="zh-Hant" data-bs-theme="light">
+<html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>面積/距離計算器 | 期中專案</title>
-<!-- Bootstrap 5 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>面積與距離計算器｜數學小工具</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- 自訂樣式 -->
+  <link href="style.css" rel="stylesheet">
 </head>
-<body class="bg-body bg-pattern">
-<!-- 導覽列 -->
-<header class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top glass shadow-sm">
-<div class="container">
-<a class="navbar-brand fw-bold tracking-wide" href="#top">數學小工具</a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<nav id="navMain" class="collapse navbar-collapse">
-<ul class="navbar-nav ms-auto align-items-lg-center gap-2">
-<li class="nav-item"><a class="nav-link" href="#calc">計算器</a></li>
-<li class="nav-item"><a class="nav-link" href="#about">關於</a></li>
-<li class="nav-item"><a class="nav-link" href="#tips">建議</a></li>
-<li class="nav-item">
-<button id="themeToggle" class="btn btn-light btn-sm" type="button" aria-pressed="false" title="切換深/淺色">🌙 深色</button>
-</li>
-</ul>
-</nav>
-</div>
-</header>
+<body>
 
-<!-- Hero 區域 -->
-<main id="top" class="py-5">
-<section class="container mb-4">
-<div class="row g-4 align-items-center">
-<div class="col-lg-6">
-<h1 class="display-5 fw-bold lh-sm">面積與距離計算器</h1>
-<p class="lead text-secondary mb-2">支援：正三角形、一般三角形、橢圓、正多邊形、長方形、圓形，以及兩點距離。</p>
-<div class="d-flex flex-wrap gap-2 mt-3">
-<span class="badge rounded-pill text-bg-primary">RWD</span>
-<span class="badge rounded-pill text-bg-success">Bootstrap 5</span>
-<span class="badge rounded-pill text-bg-info">Constraint Validation</span>
-<span class="badge rounded-pill text-bg-dark">Dark Mode</span>
-</div>
-</div>
-<div class="col-lg-6">
-<div class="card shadow-lg border-0 gradient-card lift">
-<div class="card-body p-4 p-lg-5">
-<h2 id="calc" class="h5 mb-3">選擇公式並輸入參數</h2>
+  <!-- 導覽列 -->
+  <header class="navbar navbar-expand-lg navbar-light border-0 sticky-top glass shadow-sm" id="siteHeader">
+    <div class="container">
+      <a class="navbar-brand fw-bold tracking-wide" href="#top">數學小工具</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="切換導覽">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav id="navMain" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+          <li class="nav-item"><a class="nav-link" href="#hero">首頁</a></li>
+          <li class="nav-item"><a class="nav-link" href="#calc">計算器</a></li>
+          <li class="nav-item"><a class="nav-link" href="#feedback">回饋</a></li>
+          <li class="nav-item">
+            <button id="themeToggle" class="btn btn-sm btn-outline-primary" type="button" aria-pressed="false" title="切換深/淺色">🌙 深色</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="py-5">
+    <!-- Hero 大標題 -->
+    <section id="hero" class="container mb-4">
+      <div class="row g-4 align-items-center">
+        <div class="col-12">
+          <h1 class="display-4 fw-bold lh-sm text-center">面積與距離計算器</h1>
+          <p class="lead text-secondary mb-3 text-center">支援：正三角形、一般三角形、橢圓、正多邊形、長方形、圓形，以及兩點距離。</p>
+        </div>
+      </div>
+    </section>
 
 
-<form id="calcForm" novalidate>
-<!-- 公式類別選單 -->
-<div class="row g-3 align-items-end">
-<div class="col-12 col-md-7">
-<label for="formula" class="form-label">公式類別</label>
-<select id="formula" class="form-select" required>
-<option value="" selected disabled>請選擇…</option>
-<option value="equilateral">正三角形面積 ( (√3/4)·a² )</option>
-<option value="triangle">三角形面積 ( 1/2·底·高 或 海龍公式 )</option>
-<option value="rectangle">長方形面積 ( 長·寬 )</option>
-<option value="circle">圓形面積 ( πr² )</option>
-<option value="ellipse">橢圓面積 ( πab )</option>
-<option value="regularPolygon">正多邊形面積 ( n·s² / (4·tan(π/n)) )</option>
-<option value="distance">兩點距離 ( √((x2-x1)²+(y2-y1)²) )</option>
-</select>
-<div class="invalid-feedback">請先選擇一種公式。</div>
-</div>
+    <!-- 計算器 -->
+    <section id="calc" class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-7 col-xl-6">
+          <div class="card shadow-lg border-0 gradient-card lift">
+            <div class="card-body p-4 p-lg-5">
+              <h2 class="h5 mb-3">選擇公式並輸入參數</h2>
+              <form id="calcForm" novalidate>
+                <div class="row g-3 align-items-end">
+                  <div class="col-12">
+                    <label for="formula" class="form-label">公式類別</label>
+                    <select id="formula" class="form-select" required>
+                      <option value="" selected disabled>請選擇…</option>
+                      <option value="equilateral">正三角形面積 ( (√3/4)·a² )</option>
+                      <option value="triangle">三角形面積 ( 1/2·底·高 或 海龍公式 )</option>
+                      <option value="rectangle">長方形面積 ( 長·寬 )</option>
+                      <option value="circle">圓形面積 ( πr² )</option>
+                      <option value="ellipse">橢圓面積 ( πab )</option>
+                      <option value="regularPolygon">正多邊形面積 ( n·s² / (4·tan(π/n)) )</option>
+                      <option value="distance">兩點距離 ( √((x2-x1)²+(y2-y1)²) )</option>
+                    </select>
+                    <div class="invalid-feedback">請先選擇一種公式。</div>
+                  </div>
+                  <div class="col-12 d-flex justify-content-end">
+                    <button id="btnReset" type="button" class="btn btn-outline-secondary me-2">重設</button>
+                    <button id="btnCalc" type="submit" class="btn btn-primary">計算</button>
+                  </div>
+                </div>
 
+                <div id="paramFields" class="row g-3 mt-1"></div>
 
-<div class="col-12 col-md-5 text-md-end">
-<button id="btnReset" type="button" class="btn btn-outline-secondary me-2">重設</button>
-<button id="btnCalc" type="submit" class="btn btn-primary">計算</button>
-</div>
-</div>
+                <div class="mt-4">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <label class="form-label mb-0">結果</label>
+                    <div class="d-flex align-items-center gap-2">
+                      <label class="form-label mb-0" for="unit">單位</label>
+                      <select id="unit" class="form-select form-select-sm" style="width:auto">
+                        <option value="m" selected>m</option>
+                        <option value="cm">cm</option>
+                        <option value="in">in</option>
+                      </select>
+                      <button id="copyBtn" type="button" class="btn btn-sm btn-outline-primary">複製結果</button>
+                    </div>
+                  </div>
+                  <output id="result" class="form-control form-control-lg fw-semibold" aria-live="polite">—</output>
+                  <div id="formulaView" class="form-text mt-1">將即時顯示所用公式。</div>
+                </div>
+              </form>
 
+              <!-- 即時可視化 -->
+              <div class="mt-4">
+                <canvas id="preview" width="560" height="320" class="w-100 preview-canvas"></canvas>
+                <div class="form-text">會根據輸入即時繪製圖形（示意，不按真實比例單位）。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- 動態參數容器：以 JS createElement 產生 -->
-<div id="paramFields" class="row g-3 mt-1"></div>
+    <!-- 計算歷史 -->
+    <section id="history" class="container pb-2">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card border-0 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h2 class="h5 mb-0">計算歷史</h2>
+                <button id="clearHistory" type="button" class="btn btn-sm btn-outline-danger">清除歷史</button>
+              </div>
+              <p class="text-secondary small mb-3">保留最近 10 筆。點「帶回」可將該次參數載入計算器。</p>
+              <div id="historyList" class="list-group list-group-flush"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- 使用者回饋 -->
+    <section id="feedback" class="container py-5">
+      <h2 class="h3 mb-4">使用者回饋</h2>
+      <form id="feedbackForm" novalidate class="needs-validation">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body">
+                <h3 class="h6">整體實用性</h3>
+                <div class="small text-secondary mb-2">請評分 1（很不實用）~ 5（非常實用）</div>
+                <div class="d-flex gap-3 flex-wrap" role="radiogroup" aria-label="實用性等級">
+                  <div class="form-check"><input class="form-check-input" type="radio" name="useful" id="u1" value="1" required><label class="form-check-label" for="u1">1</label></div>
+                  <div class="form-check"><input class="form-check-input" type="radio" name="useful" id="u2" value="2"><label class="form-check-label" for="u2">2</label></div>
+                  <div class="form-check"><input class="form-check-input" type="radio" name="useful" id="u3" value="3"><label class="form-check-label" for="u3">3</label></div>
+                  <div class="form-check"><input class="form-check-input" type="radio" name="useful" id="u4" value="4"><label class="form-check-label" for="u4">4</label></div>
+                  <div class="form-check"><input class="form-check-input" type="radio" name="useful" id="u5" value="5"><label class="form-check-label" for="u5">5</label></div>
+                </div>
+                <div class="invalid-feedback d-block" data-for="useful"></div>
+              </div>
+            </div>
+          </div>
 
-<!-- 結果顯示 -->
-<div class="mt-4">
-<label class="form-label">結果</label>
-<output id="result" class="form-control form-control-lg fw-semibold" aria-live="polite">—</output>
-<div id="formulaView" class="form-text mt-1">將即時顯示所用公式。</div>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-</section>
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body">
+                <h3 class="h6">介面易用性</h3>
+                <select id="ux" class="form-select" required>
+                  <option value="" selected disabled>請選擇…</option>
+                  <option>非常好</option>
+                  <option>尚可</option>
+                  <option>需要改進</option>
+                </select>
+                <div class="invalid-feedback">請選擇一個選項</div>
+              </div>
+            </div>
+          </div>
 
-<!-- 關於區：點擊導覽列「關於」會滾動到此，概述網站功能 -->
-<div class="info-tile">
-<div class="info-title">互動 API</div>
-<div class="info-body small">`querySelector`、`addEventListener`、`createElement` 三大 DOM 重點皆有使用。</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="info-tile">
-<div class="info-title">驗證體驗</div>
-<div class="info-body small">含自訂錯誤訊息與邊數 ≥ 3 等規則，避免無效輸入。</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="info-tile">
-<div class="info-title">可延伸</div>
-<div class="info-body small">容易新增新公式，如梯形、扇形、球/圓柱表面積等。</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="info-tile">
-<div class="info-title">可上線</div>
-<div class="info-body small">靜態檔案即可部署到 GitHub Pages。</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+          <div class="col-md-12">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body">
+                <h3 class="h6 mb-2">最常使用的功能（可複選）</h3>
+                <div class="row g-2">
+                  <div class="col-sm-6 col-lg-3"><div class="form-check"><input class="form-check-input feature" id="f1" type="checkbox" value="triangle"><label class="form-check-label" for="f1">三角形/正三角形</label></div></div>
+                  <div class="col-sm-6 col-lg-3"><div class="form-check"><input class="form-check-input feature" id="f2" type="checkbox" value="polygon"><label class="form-check-label" for="f2">正多邊形</label></div></div>
+                  <div class="col-sm-6 col-lg-3"><div class="form-check"><input class="form-check-input feature" id="f3" type="checkbox" value="ellipse"><label class="form-check-label" for="f3">橢圓/圓形</label></div></div>
+                  <div class="col-sm-6 col-lg-3"><div class="form-check"><input class="form-check-input feature" id="f4" type="checkbox" value="distance"><label class="form-check-label" for="f4">兩點距離</label></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<!-- 建議 / UX 區域：避免單調 -->
-<section id="tips" class="container py-5">
-<h2 class="h3 mb-4">我們的設計建議</h2>
-<div class="row g-3">
-<div class="col-md-6">
-<div class="card border-0 shadow-sm h-100">
-<div class="card-body">
-<h3 class="h5">視覺層次</h3>
-<ul class="mb-0">
-<li>引入微漸層與玻璃擬態（glass）效果，搭配陰影與懸浮 lift 動畫。</li>
-<li>使用 <code>.lead</code>、<code>.small</code> 與間距工具建立節奏。</li>
-<li>章節間加入圖塊（tiles）與徽章（badges）強調重點。</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-md-6">
-<div class="card border-0 shadow-sm h-100">
-<div class="card-body">
-<h3 class="h5">可用性</h3>
-<ul class="mb-0">
-<li>深色模式時提高文字/背景對比，鏈結與重點元素換用高彩度色。</li>
-<li>表單採浮動標籤（floating labels），聚焦時顯示亮邊框。</li>
-<li>行動裝置上維持 16px 以上字級與舒適觸控距離。</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
+          <div class="col-12">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body">
+                <label for="comment" class="form-label">其他建議或想說的話</label>
+                <textarea id="comment" class="form-control" rows="4" required minlength="10" placeholder="請輸入至少 10 個字…"></textarea>
+                <div class="invalid-feedback">請填寫意見（至少 10 個字）。</div>
+              </div>
+            </div>
+          </div>
 
-<footer class="py-5 text-center text-secondary small">
-<p class="mb-1">© 2025 Fan Wei Che | TKU IM — Midterm</p>
-<a class="text-decoration-none" href="#top">回到頂部 ↑</a>
-</footer>
+          <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary">送出回饋</button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- 自訂腳本 -->
+  <script src="script.js"></script>
 </body>
 </html>
