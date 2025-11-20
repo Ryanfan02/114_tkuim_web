@@ -1,0 +1,19 @@
+### 狀態檢查
+GET http://localhost:3001/health
+
+### 建立報名
+POST http://localhost:3001/api/signup
+Content-Type: application/json
+
+{
+  "name": "REST Client",
+  "email": "rest@example.com",
+  "phone": "0988777666",
+  "password": "restrest",
+  "confirmPassword": "restrest",
+  "interests": ["全端"],
+  "terms": true
+}
+
+### 查看清單
+GET http://localhost:3001/api/signup
