@@ -38,7 +38,6 @@ ALLOWED_ORIGIN=http://127.0.0.1:5500
 
 ## 前端啟動方式
 
-### 方法 A：使用 VS Code Live Server
 1. 安裝 Live Server 擴充功能  
 2. 右鍵 `client/signup_form.html` → **Open with Live Server**
 3. Live Server 預設網址：
@@ -48,18 +47,7 @@ http://127.0.0.1:5500/client/signup_form.html
 
 ---
 
-### 方法 B：使用 Vite 開發伺服器
-若你想用 Vite：
 
-```bash
-npm create vite@latest
-npm install
-npm run dev
-```
-
-並將 `client/` 靜態檔案放到 `vite` 專案的 `public/` 或 `src/`。
-
----
 
 # API 說明文件
 
