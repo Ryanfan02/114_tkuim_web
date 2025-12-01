@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  mongodb:
+    image: mongo:7
+    container_name: week11-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: week11
+    volumes:
+      - ./mongo-data:/data/db          # 保留資料
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/init.js:ro
