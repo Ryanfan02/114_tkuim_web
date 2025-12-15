@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dcard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-left">
+            <a href="#" class="logo" onclick="renderFeed('all')">
+                <span
+                    style="background-color: #3397cf; color: white; padding: 0 4px; border-radius: 4px; font-weight: 900;">D</span>
+                card
+            </a>
+            <div class="search-box">
+                <input type="text" placeholder="搜尋">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+
+        <!-- nav-center not really needed based on Dcard design, search is usually left aligned near logo -->
+
+        <div class="nav-right">
+            <i class="fa-solid fa-pen nav-icon"></i>
+            <i class="fa-solid fa-bell nav-icon"></i>
+            <i class="fa-solid fa-bookmark nav-icon"></i>
+            <i class="fa-solid fa-envelope nav-icon"></i>
+            <i class="fa-solid fa-user-circle nav-icon" style="font-size: 24px;"></i>
+            <button class="download-app-btn">Download App</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <!-- Main Nav items -->
+                <div class="sidebar-item" onclick="renderFeed('all')">
+                    <span class="icon"><i class="fa-solid fa-list"></i></span>
+                    All forums
+                </div>
+                <div class="sidebar-item">
+                    <span class="icon"><i class="fa-solid fa-fire"></i></span>
+                    Trending forums
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Recently viewed</h3>
+                <div class="sidebar-item" onclick="renderForum('tku')">
+                    <img src="https://picsum.photos/seed/tku/24" class="avatar-small icon" alt="TKU">
+                    淡江大學
+                </div>
+                <div class="sidebar-item" onclick="renderForum('mood')">
+                    <img src="https://picsum.photos/seed/mood/24" class="avatar-small icon" alt="Mood">
+                    感情
+                </div>
+                <div class="sidebar-item" onclick="renderForum('grad')">
+                    <img src="https://picsum.photos/seed/grad/24" class="avatar-small icon" alt="Grad">
+                    研究所
+                </div>
+                <div class="sidebar-item">
+                    <img src="https://picsum.photos/seed/relations/24" class="avatar-small icon" alt="Rel">
+                    輝傑條件
+                </div>
+                <div class="sidebar-item">
+                    <img src="https://picsum.photos/seed/menswear/24" class="avatar-small icon" alt="Men">
+                    男生穿搭
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Following Forums</h3>
+                <div class="sidebar-item" onclick="renderForum('tku')">
+                    <img src="https://picsum.photos/seed/tku/24" class="avatar-small icon">
+                    淡江大學
+                </div>
+                <div class="sidebar-item" onclick="renderForum('grad')">
+                    <img src="https://picsum.photos/seed/grad/24" class="avatar-small icon">
+                    研究所
+                </div>
+            </div>
+
+            <div class="sidebar-item">
+                All posts
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content" id="mainContent">
+
+            <!-- Feed View -->
+            <div id="feedView">
+                <div class="tabs">
+                    <div class="tab active" id="tabAll" onclick="switchTab('all')">All</div>
+                    <div class="tab" id="tabFollowing" onclick="switchTab('following')">Following</div>
+                </div>
+
+                <div id="postsContainer">
+                    <!-- Posts will be injected here by JS -->
+                </div>
+            </div>
+
+            <!-- Detail View (Initially Hidden) -->
+            <div id="detailView" class="detail-view hidden">
+                <div class="detail-header">
+                    <div class="back-btn" onclick="showFeed()">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <div class="forum-info">
+                        <img src="" class="forum-avatar" id="detailForumIcon">
+                        <span id="detailForumName">Forum Name</span>
+                        <span style="color: #999; font-weight: normal; margin-left: 8px;">• Follow</span>
+                    </div>
+                </div>
+
+                <div class="detail-content">
+                    <div class="author-info">
+                        <img src="" class="author-avatar" id="detailAuthorAvatar">
+                        <div class="author-meta">
+                            <h4 id="detailAuthorName">Author Name</h4>
+                            <span id="detailTime">Time</span>
+                        </div>
+                    </div>
+
+                    <h1 class="detail-title" id="detailTitle">Title</h1>
+                    <div class="article-content" id="detailBody">
+                        Content...
+                    </div>
+                </div>
+
+                <div class="comments-section">
+                    <!-- Comment Input -->
+                    <div class="comment-input-area">
+                        <div class="author-avatar" style="background-color: #ddd;"></div>
+                        <input type="text" id="commentInput" placeholder="Comment...">
+                    </div>
+
+                    <!-- Comment List -->
+                    <div id="commentsList">
+                        <!-- Comments injected here -->
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
