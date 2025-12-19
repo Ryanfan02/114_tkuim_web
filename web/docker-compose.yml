@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  mini_login:
+    build: .
+    container_name: mini_login_412631474
+    environment:
+      - OWNER=412631474
+      - MODE=vuln
+    ports:
+      - "5000:5000"
+    restart: unless-stopped

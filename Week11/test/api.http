@@ -17,12 +17,12 @@ Content-Type: application/json
 
 {
   "name": "Another User",
-  "email": "test1@example.com",
+  "email": "test@example.com",
   "phone": "0922-222-222"
 }
 
 ### 更新報名（Update）
-PATCH http://localhost:3001/api/signup/692ce51d3f634c1d4e9dc29c
+PATCH http://localhost:3001/api/signup/692d2e1a426ee5f5273aed1b
 Content-Type: application/json
 
 {
@@ -31,4 +31,4 @@ Content-Type: application/json
 }
 
 ### 刪除報名（Delete）
-DELETE http://localhost:3001/api/signup/692ce51d3f634c1d4e9dc29c
+DELETE http://localhost:3001/api/signup/692d2e1a426ee5f5273aed1b

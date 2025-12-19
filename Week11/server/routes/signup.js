@@ -1,96 +1,60 @@
 // server/routes/signup.js
 import express from 'express';
+import { authMiddleware } from '../middleware/auth.js';
 import {
-  createParticipant,
-  listParticipants,
-  updateParticipant,
-  deleteParticipant
+  findAll,             // admin 用
+  findByOwner,         // 依 ownerId 查
+  createParticipant,   // 新增
+  deleteById           // 刪除
 } from '../repositories/participants.js';
 
 const router = express.Router();
 
-router.post('/', async (req, res, next) => {
-  try {
-    const { name, email, phone } = req.body;
-    if (!name || !email || !phone) {
-      return res.status(400).json({ error: '缺少必要欄位' });
-    }
-    const id = await createParticipant({ name, email, phone });
-   res.status(201).json({ _id: insertedId });
-  } catch (error) {
-    if (error.code === 11000) {
-      return res.status(409).json({
-        error: '這個 email 已經報名過了，請使用其他 email'
-      });
-    }
-    next(error);
-  }
-  
+// 所有 /api/signup 底下都要先登入
+router.use(authMiddleware);
+
+// GET /api/signup
+router.get('/', async (req, res) => {
+  const isAdmin = req.user.role === 'admin';
+  const data = isAdmin
+    ? await findAll()
+    : await findByOwner(req.user.id);
+
+  res.json({
+    total: data.length,
+    data: data.map(/* serializeParticipant */ p => p)
+  });
 });
 
-router.get('/', async (req, res, next) => {
-  try {
-    let page = parseInt(req.query.page, 10);
-    let limit = parseInt(req.query.limit, 10);
-
-    if (!Number.isFinite(page) || page < 1) page = 1;
-    if (!Number.isFinite(limit) || limit < 1) limit = 10;
-
-    const { items, total } = await listParticipants({ page, limit });
-
-    res.json({
-      items,
-      total,
-      page,
-      limit
-    });
-  } catch (error) {
-    next(error);
-  }
+// POST /api/signup
+router.post('/', async (req, res) => {
+  const payload = req.body;
+  // 建立資料時帶上 ownerId
+  const doc = await createParticipant({
+    ...payload,
+    ownerId: req.user.id
+  });
+  res.status(201).json(doc);
 });
 
-router.patch('/:id', async (req, res, next) => {
-  try {
-    const patch = {};
-    
-    if (typeof req.body.phone === 'string') {
-      patch.phone = req.body.phone;
-    }
-    if (typeof req.body.status === 'string') {
-      patch.status = req.body.status;
-    }
+// DELETE /api/signup/:id
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
 
-    if (Object.keys(patch).length === 0) {
-      return res.status(400).json({ error: '沒有可更新的欄位（僅允許 phone 或 status）' });
-    }
-
-    const result = await updateParticipant(req.params.id, patch);
-
-    if (!result.matchedCount) {
-      return res.status(404).json({ error: '找不到資料' });
-    }
-
-    res.json({ updated: result.modifiedCount });
-  } catch (error) {
-    next(error);
+  const doc = await findById(id);  // 需要在 participants repository 補這個
+  if (!doc) {
+    return res.status(404).json({ error: '找不到資料' });
   }
-});
 
-router.delete('/:id', async (req, res, next) => {
-  try {
-    const result = await deleteParticipant(req.params.id);
-    if (!result.deletedCount) {
-      return res.status(404).json({ error: '找不到資料' });
-    }
-    res.status(204).end();
-  } catch (error) {
-    if (error.code === 11000) {
-      return res.status(409).json({
-        error: '這個 email 已經報名過了，請使用其他 email'
-      });
-    }
-    next(error);
+  const isOwner = doc.ownerId?.toString() === req.user.id;
+  const isAdmin = req.user.role === 'admin';
+
+  if (!isOwner && !isAdmin) {
+    return res.status(403).json({ error: '權限不足' });
   }
+
+  await deleteById(id);
+  res.json({ message: '刪除完成' });
 });
 
 export default router;
